@@ -1,0 +1,124 @@
+<!-- Contact Section -->
+<div class="bg-light py-5">
+    <div class="container">
+        
+        <div class="row text-center mb-4">
+            <div class="col-lg-8 mx-auto">
+                <h3 class="fw-bold">Send us a message</h3>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <form #contactForm="ngForm" (ngSubmit)="addContact(contactForm)" novalidate>
+
+            <div class="row g-3">
+            
+                <div class="col-md-6">
+                    <label class="form-label">First name</label>
+                    <input type="text" class="form-control" [(ngModel)]="contact.firstName" name="firstName" required #firstName="ngModel" placeholder="Enter your first name">
+                    <small class="text-danger" *ngIf="firstName.invalid && firstName.touched">First Name is required.</small>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Last name</label>
+                    <input type="text" class="form-control" [(ngModel)]="contact.lastName" name="lastName" required #lastName="ngModel" placeholder="Enter your last name">
+                    <small class="text-danger" *ngIf="lastName.invalid && lastName.touched">Last Name is required.</small>
+                </div>
+
+                <!-- Email -->
+                <div class="col-md-6">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" [(ngModel)]="contact.email" name="email" #emailField="ngModel" placeholder="Enter your email" required email>
+                    <small class="text-danger" *ngIf="emailField.touched && emailField.invalid">Enter a valid email address (e.g., example&#64;gmail.com).</small>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Contact Number</label>
+                    <input type="text" class="form-control" [(ngModel)]="contact.contactNo" name="contactNo" pattern="^[0-9]{11}$" required #contactNo="ngModel" placeholder="Enter your contact number">
+                    <small class="text-danger" *ngIf="contactNo.invalid && contactNo.touched">Enter a valid mobile number (11 digits required).</small>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Message</label>
+                    <textarea class="form-control" [(ngModel)]="contact.message" name="message" rows="5" placeholder="Enter your message" required #message="ngModel"></textarea>
+                    <small class="text-danger" *ngIf="message.invalid && message.touched">Message is required.</small>
+                </div>
+
+                <div class="col-12 text-center mt-3">
+                    <button type="submit" class="btn btn-dark px-4" [disabled]="contactForm.invalid">Send</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<div style="height: 100px;"></div>
+
+<!-- Get in Touch Section -->
+<div class="bg-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h3 class="fw-bold">Get in touch</h3>
+                <p class="text-muted">
+                    We’d love to hear from you! Whether you have a question, feedback, or just want to say hello, feel free to reach out.
+                </p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fas fa-envelope fs-4 me-3"></i>
+                    <span>gugufarmresort&#64;gmail.com</span>
+                </div>
+
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fas fa-phone fs-4 me-3"></i>
+                    <span>0969-139-2375</span>
+                </div>
+
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fab fa-facebook fs-4 me-3"></i>
+                    <span>GuguFarmandPrivateResort</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div style="height: 100px;"></div>
+<footer class="bg-dark text-white py-4">
+    <div class="container">
+        <div class="row align-items-center">
+          
+            <div class="col-lg-3 text-center text-lg-start">
+                <img src="images/gugu-logo.png" alt="Logo" class="img-fluid" style="max-height: 60px;">
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="col-lg-3 text-center">
+                <ul class="list-unstyled mb-0">
+                    <li><a routerLink="/" class="text-white text-decoration-none">Home</a></li>
+                    <li><a routerLink="/about" class="text-white text-decoration-none">About us</a></li>
+                    <li><a routerLink="/gallery" class="text-white text-decoration-none">Gallery</a></li>
+                    <li><a routerLink="/contact" class="text-white text-decoration-none">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Details -->
+            <div class="col-lg-3 text-center text-lg-start">
+                <ul class="list-unstyled mb-0">
+                    <li><i class="fas fa-envelope"></i> gugufarmresort&#64;gmail.com</li>
+                    <li><i class="fas fa-phone"></i> 0969-139-2375</li>
+                    <li><i class="fab fa-facebook"></i> GuguFarmandPrivateResort</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- FontAwesome for icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
