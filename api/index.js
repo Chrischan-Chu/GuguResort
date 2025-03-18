@@ -10,7 +10,7 @@ app.use(cors());
 app.use(Express.json()); 
 
 // MongoDB Connection String
-var CONNECTION_STRING = "mongodb+srv://christiantan120501:ChristianTan20930398@cluster0.0ihhj.mongodb.net/as?retryWrites=true&w=majority&tls=true";
+var CONNECTION_STRING = "mongodb+srv://christiantan120501:ChristianTan20930398@cluster0.0ihhj.mongodb.net/as?retryWrites=true&w=majority&tls=true&tlsAllowInvalidCertificates=true";
 
 // Database Name
 var DATABASENAME = "GuguResort";
