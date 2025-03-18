@@ -30,12 +30,12 @@ MongoClient.connect(CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopolo
         console.error("Database connection failed:", error);
     });
 
-// Basic test route
+// Testing Route
 app.get("/", (req, res) => {
     res.send("Backend is running on Render!");
 });
 
-// Example API route to fetch all data from a collection
+// API Route to Fetch All Collection Data
 app.get("/data", async (req, res) => {
     try {
         const collection = database.collection("contact"); 
@@ -43,6 +43,17 @@ app.get("/data", async (req, res) => {
         res.json(data);
     } catch (error) {
         res.status(500).json({ error: "Failed to fetch data" });
+    }
+});
+
+// API Route to Send a Meesage
+app.post("/sendMessage", async (req, res) => {
+    try {
+        const collection = database.collection("contact");
+        await collection.insertOne(req.body);
+        res.status(200).json({ message: "Message sent successfully!" });
+    } catch (error) {
+        res.status(500).json({ error: "Failed to send message" });
     }
 });
 
